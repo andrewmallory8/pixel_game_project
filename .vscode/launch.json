@@ -1,0 +1,21 @@
+{
+    "configurations": [
+    {
+        "name": "pixel_run",
+        "request": "launch",
+        "type": "dart",
+    },
+    {
+        "name": "pixel_run (profile mode)",
+        "request": "launch",
+        "type": "dart",
+        "flutterMode": "profile"
+    },
+    {
+        "name": "pixel_run (release mode)",
+        "request": "launch",
+        "type": "dart",
+        "flutterMode": "release"
+    }
+    ]
+}

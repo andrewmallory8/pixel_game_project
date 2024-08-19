@@ -1,0 +1,14 @@
+{
+    "dart.closingLabels": false,
+    "debug.openDebug": "openOnDebugBreak",
+    "[yaml]": {
+        "editor.formatOnSave": true
+    },
+    "editor.bracketPairColorization.enabled": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": "explicit",
+        "source.organizeImports": "explicit",
+        "quickfix.insertSemicolon": "explicit"
+    },
+    "editor.formatOnSave": true
+}
