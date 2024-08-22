@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flame/components.dart';
-import 'package:flame_audio/flame_audio.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:pixel_adventure/components/angrypig.dart';
 import 'package:pixel_adventure/components/background_tile.dart';
@@ -37,7 +36,6 @@ class Level extends World with HasGameRef<PixelAdventure> {
 
   void _scrollingBackground() {
     final backgroundLayer = level.tileMap.getLayer('Background');
-     FlameAudio.play('pixel-run-206007.mp3', volume: soundVolume);
     if (backgroundLayer != null) {
       final backgroundColor =
           backgroundLayer.properties.getValue('BackgroundColor');
@@ -90,24 +88,27 @@ class Level extends World with HasGameRef<PixelAdventure> {
             add(checkpoint);
             break;
           case 'Chicken':
-          final offNeg = spawnPoint.properties.getValue('offNeg');
-          final offPos = spawnPoint.properties.getValue('offPos');
-          final chicken = Chicken(position: Vector2(spawnPoint.x, spawnPoint.y),
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final chicken = Chicken(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height),
-              offNeg:offNeg,
-              offPos:offPos,
+              offNeg: offNeg,
+              offPos: offPos,
             );
-              add(chicken);
-              break;
+            add(chicken);
+            break;
           case 'Angrypig':
-          final offNeg = spawnPoint.properties.getValue('offNeg');
-          final offPos = spawnPoint.properties.getValue('offPos');
-          final pig = Angrypig(position: Vector2(spawnPoint.x, spawnPoint.y),
+            final offNeg = spawnPoint.properties.getValue('offNeg');
+            final offPos = spawnPoint.properties.getValue('offPos');
+            final pig = Angrypig(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
               size: Vector2(spawnPoint.width, spawnPoint.height),
-              offNeg:offNeg,
-              offPos:offPos,);
-              add(pig);
-              break;
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(pig);
+            break;
           default:
         }
       }

@@ -4,10 +4,11 @@ import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
 import 'package:flame/input.dart';
+import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/painting.dart';
 import 'package:pixel_adventure/components/jump_button.dart';
-import 'package:pixel_adventure/components/player.dart';
 import 'package:pixel_adventure/components/level.dart';
+import 'package:pixel_adventure/components/player.dart';
 
 class PixelAdventure extends FlameGame
     with
@@ -23,8 +24,15 @@ class PixelAdventure extends FlameGame
   bool showControls = false;
   bool playSounds = true;
   double soundVolume = 1.0;
-  List<String> levelNames = ['Level-01', 'Level-02', 'Level-03', 'Level-04', 'Level-05'];
+  List<String> levelNames = [
+    'Level-01',
+    'Level-02',
+    'Level-03',
+    'Level-04',
+    'Level-05'
+  ];
   int currentLevelIndex = 0;
+  int levelmusic = 1;
 
   @override
   FutureOr<void> onLoad() async {
@@ -100,6 +108,10 @@ class PixelAdventure extends FlameGame
   }
 
   void _loadLevel() {
+    if (levelmusic == 1) {
+      FlameAudio.play('pixel-run-206007.mp3', volume: soundVolume);
+      levelmusic++;
+    }
     Future.delayed(const Duration(seconds: 1), () {
       Level world = Level(
         player: player,
