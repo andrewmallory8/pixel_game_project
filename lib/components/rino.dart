@@ -9,14 +9,14 @@ import 'package:pixel_adventure/pixel_adventure.dart';
 
 enum State { idle, run, hit }
 
-class Angrypig extends SpriteAnimationGroupComponent
+class Rino extends SpriteAnimationGroupComponent
     with HasGameRef<PixelAdventure>, CollisionCallbacks {
   final double offNeg;
   final double offPos;
-  Angrypig({super.position, super.size, this.offNeg = 0, this.offPos = 0});
+  Rino({super.position, super.size, this.offNeg = 0, this.offPos = 0});
 
   static const stepTime = 0.05;
-  final textureSize = Vector2(36, 30);
+  final textureSize = Vector2(52, 34);
   static const tileSize = 16;
   static const _bounceHeight = 260.0;
 
@@ -40,7 +40,7 @@ class Angrypig extends SpriteAnimationGroupComponent
 
     add(RectangleHitbox(
       position: Vector2(4, 6),
-      size: Vector2(24, 26),
+      size: Vector2(52, 34),
     ));
     _loadAllAnimations();
     _calculateRange();
@@ -57,9 +57,9 @@ class Angrypig extends SpriteAnimationGroupComponent
   }
 
   void _loadAllAnimations() {
-    _idleAnimation = _spriteAnimation('Idle', 9);
-    _runAnimation = _spriteAnimation('Run', 12);
-    _hitAnimation = _spriteAnimation('Hit 1', 15)..loop = false;
+    _idleAnimation = _spriteAnimation('Idle', 11);
+    _runAnimation = _spriteAnimation('Run', 6);
+    _hitAnimation = _spriteAnimation('Hit', 15)..loop = false;
 
     animations = {
       State.idle: _idleAnimation,
@@ -72,7 +72,7 @@ class Angrypig extends SpriteAnimationGroupComponent
 
   SpriteAnimation _spriteAnimation(String state, int amount) {
     return SpriteAnimation.fromFrameData(
-        game.images.fromCache('Enemies/AngryPig/$state (36x30).png'),
+        game.images.fromCache('Enemies/Rino/$state (52x34).png'),
         SpriteAnimationData.sequenced(
             amount: amount, stepTime: stepTime, textureSize: textureSize));
   }

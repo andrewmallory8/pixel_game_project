@@ -5,11 +5,13 @@ import 'package:flame/components.dart';
 import 'package:flame_audio/flame_audio.dart';
 import 'package:flutter/services.dart';
 import 'package:pixel_adventure/components/angrypig.dart';
+import 'package:pixel_adventure/components/chameleon.dart';
 import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/chicken.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
 import 'package:pixel_adventure/components/custom_hitbox.dart';
 import 'package:pixel_adventure/components/fruit.dart';
+import 'package:pixel_adventure/components/rino.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/components/utils.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
@@ -122,6 +124,8 @@ class Player extends SpriteAnimationGroupComponent
       if (other is Chicken) other.collidedWithPlayer();
       if (other is Angrypig) other.collidedWithPlayer();
       if (other is Checkpoint) _reachedCheckpoint();
+      if (other is Rino) other.collidedWithPlayer();
+      if (other is Chameleon) other.collidedWithPlayer();
     }
     super.onCollisionStart(intersectionPoints, other);
   }

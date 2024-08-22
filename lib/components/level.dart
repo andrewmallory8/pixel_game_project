@@ -4,11 +4,13 @@ import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 import 'package:pixel_adventure/components/angrypig.dart';
 import 'package:pixel_adventure/components/background_tile.dart';
+import 'package:pixel_adventure/components/chameleon.dart';
 import 'package:pixel_adventure/components/checkpoint.dart';
 import 'package:pixel_adventure/components/chicken.dart';
 import 'package:pixel_adventure/components/collision_block.dart';
 import 'package:pixel_adventure/components/fruit.dart';
 import 'package:pixel_adventure/components/player.dart';
+import 'package:pixel_adventure/components/rino.dart';
 import 'package:pixel_adventure/components/saw.dart';
 import 'package:pixel_adventure/pixel_adventure.dart';
 
@@ -20,6 +22,7 @@ class Level extends World with HasGameRef<PixelAdventure> {
   late TiledComponent level;
   List<CollisionBlock> collisionBlocks = [];
   double soundVolume = 1.0;
+  int index = 0;
 
   @override
   FutureOr<void> onLoad() async {
@@ -108,6 +111,28 @@ class Level extends World with HasGameRef<PixelAdventure> {
               offPos: offPos,
             );
             add(pig);
+            break;
+          case 'Rino':
+            final double offNeg = spawnPoint.properties.getValue("offNeg");
+            final double offPos = spawnPoint.properties.getValue('offPos');
+            final rino = Rino(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(rino);
+            break;
+          case 'Chameleon':
+            final double offNeg = spawnPoint.properties.getValue("offNeg");
+            final double offPos = spawnPoint.properties.getValue('offPos');
+            final cham = Chameleon(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+              offNeg: offNeg,
+              offPos: offPos,
+            );
+            add(cham);
             break;
           default:
         }
