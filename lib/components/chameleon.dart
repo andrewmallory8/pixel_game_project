@@ -39,7 +39,7 @@ class Chameleon extends SpriteAnimationGroupComponent
 
     add(RectangleHitbox(
       position: Vector2(4, 6),
-      size: Vector2(84, 38),
+      size: Vector2(26, 24),
     ));
     _loadAllAnimations();
     _calculateRange();
